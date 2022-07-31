@@ -1,12 +1,14 @@
+# Creating a Node
 class Node:
     def __init__(self,data):
-        self.data = data
-        self.ref = None
+        self.data = data #The value of the node
+        self.ref = None #The adress of the node
 
 class LinkedList:
     def __init__(self):
-        self.head = None
+        self.head = None #The adress of the current node
 
+    #Function to Display the list
     def display(self):
         if self.head is None:
             print("Linked List is Empty!")
@@ -15,6 +17,8 @@ class LinkedList:
             while temp:
                 print(temp.data ,'-->', end=' ')
                 temp = temp.ref
+
+    #Adding the element to an empty list
     def add_new(self,data):
         if self.head is None:
             new_node = Node(data)
@@ -22,11 +26,13 @@ class LinkedList:
         else:
             print('The node is not empty')
 
+    #Adding the element at the begning of the list
     def add_begin(self,data):
         new_node = Node(data)
         new_node.ref = self.head
         self.head = new_node
     
+    #Adding the element at the end of the list
     def add_end(self,data):
         new_node = Node(data)
         if self.head is None:
@@ -37,6 +43,7 @@ class LinkedList:
                 n = n.ref
             n.ref = new_node
 
+    #Adding the element after an element
     def add_after(self,data,x):
         n = self.head
         while n is not None:
@@ -51,6 +58,7 @@ class LinkedList:
             new_node.ref = n.ref
             n.ref = new_node
 
+    #Adding the element before an element
     def add_before(self,data,x):
         if self.head is None:
             print('There is NO Linked List')
