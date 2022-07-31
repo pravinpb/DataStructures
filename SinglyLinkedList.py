@@ -81,25 +81,25 @@ exit = False
 while exit == False:
     process = input("\n Enter the place where you need to add an element in the linked list or EXIT ['new','begning','end','after','before','exit'] :")
     if process.lower() == 'new':
-        data = int(input('Enter the number you need to add in the new list :'))
+        data = input('Enter the number you need to add in the new list :')
         linkedlist.add_new(data)
         linkedlist.display()
     elif process.lower() == 'begning':
-        data = int(input('Enter the number you need to add in the begning :'))
+        data = input('Enter the number you need to add in the begning :')
         linkedlist.add_begin(data)
         linkedlist.display()
     elif process.lower() == 'end':
-        data = int(input('Enter the number you need to add in the end :'))
+        data = input('Enter the number you need to add in the end :')
         linkedlist.add_end(data)
         linkedlist.display()
     elif process.lower() == 'after':
-        data = int(input('Enter the number you need to add after:'))
-        x = int(input('Enter the node :'))
+        data = input('Enter the number you need to add after:')
+        x = input('Enter the node :')
         linkedlist.add_after(data,x)
         linkedlist.display()
     elif process.lower() == 'before':
-        data = int(input('Enter the number you need to add before:'))
-        x = int(input('Enter the node :'))
+        data = input('Enter the number you need to add before:')
+        x = input('Enter the node :')
         linkedlist.add_before(data,x)
         linkedlist.display()
     elif process.lower() == 'exit':
