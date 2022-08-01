@@ -81,7 +81,7 @@ while exit == False:
     elif q == 'pop':
         stack.pop()
     elif q == 'exit':
-        exti = True
+        exit = True
 
 
 '''Queue'''
@@ -127,4 +127,57 @@ while exit == False:
         queue.dequeue()
     elif q == 'exit':
         exti = True
+
+
+'''Sorting'''
+'''Bubble Sort'''
+
+def BubbleSort(list_input):
+    n = len(list_input)
+    for i in range(n):
+        for j in range(n-i-1):
+            if list_input[j] > list_input[j+1]:
+                list_input[j],list_input[j+1] = list_input[j+1],list_input[j]
+            print(list_input)
+
+BubbleSort([98,87,76,76,65,54])
+
+'''Selection Sort'''
+
+def SelectionSort(list_input):
+    n = len(list_input)
+    for i in range(n):
+        min_index = i
+        for j in range(i+1,n):
+            if list_input[min_index] > list_input[j]:
+                min_index = j
+
+        list_input[i] , list_input[min_index] = list_input[min_index] , list_input[i]
+    print(list_input)
+
+SelectionSort([98,87,76,76,65,54])
+
+'''Insertion Sort'''
+
+def InsertionSort(list_input):
+    n = len(list_input)
+    for i in range(1,n):
+        key = list_input[i]
+
+        j = i-1
+        while j>=0 and key < list_input[j]:
+            list_input[j+1] = list_input[j]
+            j = j-1
+        list_input[j+1] = key
+        print(list_input)
+
+InsertionSort([98,87,76,76,65,54])
+
+'''Merg Sort'''
+
+# def MergSort(list_input):
+
+
+
+
 
