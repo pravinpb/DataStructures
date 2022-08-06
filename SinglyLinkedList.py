@@ -1,4 +1,7 @@
 # Creating a Node
+from pickle import NONE
+
+
 class Node:
     def __init__(self,data):
         self.data = data #The value of the node
@@ -82,33 +85,88 @@ class LinkedList:
             new_node.ref = n.ref
             n.ref = new_node
 
+    #Removing a element in the begning of the linked list
+    def remove_begin(self):
+        if self.head is None:
+            print('There is no Linked List')
+        else:
+            self.head = self.head.ref
+
+    #removnig an element in the end of the Linked List
+    def remove_end(self):
+        if self.head is None:
+            print('There is no Linked List')
+        else:
+            n = self.head
+            f = n.ref
+            while n.ref.ref is not None:
+                n = n.ref
+            n.ref = None
+    
+    #Removing at the given position
+    def remove_position(self,x):
+        n = self.head
+        if self.head is None:
+            print('There is no Linked List')
+            return
+        if x == self.head.data:
+            self.head = self.head.ref
+            return
+        while n.ref is not None:
+            if n.ref.data == x:
+                break
+            n = n.ref
+        if n.ref is None:
+            print('No NODE is found')
+        else:
+            n.ref = n.ref.ref
+
+        
+
 
 linkedlist = LinkedList()
 
 exit = False
 while exit == False:
-    process = input("\n Enter the place where you need to add an element in the linked list or EXIT ['new','begning','end','after','before','exit'] :")
-    if process.lower() == 'new':
-        data = input('Enter the number you need to add in the new list :')
-        linkedlist.add_new(data)
-        linkedlist.display()
-    elif process.lower() == 'begning':
-        data = input('Enter the number you need to add in the begning :')
-        linkedlist.add_begin(data)
-        linkedlist.display()
-    elif process.lower() == 'end':
-        data = input('Enter the number you need to add in the end :')
-        linkedlist.add_end(data)
-        linkedlist.display()
-    elif process.lower() == 'after':
-        data = input('Enter the number you need to add after:')
-        x = input('Enter the node :')
-        linkedlist.add_after(data,x)
-        linkedlist.display()
-    elif process.lower() == 'before':
-        data = input('Enter the number you need to add before:')
-        x = input('Enter the node :')
-        linkedlist.add_before(data,x)
-        linkedlist.display()
-    elif process.lower() == 'exit':
+    add_remove = input('\nAdd or Delete or Exit ?  :')
+
+    if add_remove.lower() == 'add':
+        process = input("\nWhere do you need to perforn the action ['new','begning','end','after','before','exit'] :")
+        if process.lower() == 'new':
+            data = input('Enter the number you need to add in the new list :')
+            linkedlist.add_new(data)
+            linkedlist.display()
+        elif process.lower() == 'begning':
+            data = input('Enter the number you need to add in the begning :')
+            linkedlist.add_begin(data)
+            linkedlist.display()
+        elif process.lower() == 'end':
+            data = input('Enter the number you need to add in the end :')
+            linkedlist.add_end(data)
+            linkedlist.display()
+        elif process.lower() == 'after':
+            data = input('Enter the number you need to add after:')
+            x = input('Enter the node :')
+            linkedlist.add_after(data,x)
+            linkedlist.display()
+        elif process.lower() == 'before':
+            data = input('Enter the number you need to add before:')
+            x = input('Enter the node :')
+            linkedlist.add_before(data,x)
+            linkedlist.display()
+    
+    elif add_remove.lower() == 'delete':
+        process = input("\nWhere do you need to perforn the action ['begning','end','position','exit'] :")
+        if process.lower() == 'begning':
+            linkedlist.remove_begin()
+            linkedlist.display()
+        elif process.lower() == 'position':
+            f = input('Enter the element you want to remove :')
+            linkedlist.remove_position(f)
+            linkedlist.display()
+        elif process.lower() == 'end':
+            linkedlist.remove_end()
+            linkedlist.display()
+
+    elif add_remove.lower() == 'exit':
         exit = True
