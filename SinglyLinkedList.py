@@ -1,18 +1,15 @@
 # Creating a Node
-from pickle import NONE
-
-
 class Node:
     def __init__(self,data):
         self.data = data #The value of the node
         self.ref = None #The adress of the node
 
-class LinkedList:
+class SinglyLinkedList:
     def __init__(self):
         self.head = None #The adress of the current node
 
     #Function to Display the list
-    def display(self):
+    def display(self): 
         if self.head is None:
             print("Linked List is Empty!")
         else:
@@ -124,7 +121,7 @@ class LinkedList:
         
 
 
-linkedlist = LinkedList()
+linkedlist = SinglyLinkedList()
 
 exit = False
 while exit == False:
